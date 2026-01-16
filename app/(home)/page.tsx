@@ -1,7 +1,5 @@
 // "use client";
 
-import MarsLayout from "./components/home_layout";
-
 // import { useEffect } from "react";
 // import { PushNotifications } from "@capacitor/push-notifications";
 // import { FirebaseMessaging } from "@capacitor-firebase/messaging";
@@ -46,6 +44,14 @@ import MarsLayout from "./components/home_layout";
 //     </div>
 //   );
 // }
+
+import { Metadata } from "next";
+import MarsLayout from "../../components/mars_layout";
+
+export const metadata: Metadata = {
+  title: "MARS",
+  description: "MARS",
+};
 
 export default function Home() {
   return (

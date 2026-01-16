@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 // 1. 그리드 아이템 컴포넌트
@@ -31,51 +32,39 @@ const MarsLayout = () => {
   return (
     <div className="bg-gray-50 min-h-screen font-sans">
       {/* Header */}
-      <header className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center bg-white shadow-sm">
-        <div className="flex items-center space-x-2">
-          <div className="font-black text-2xl flex items-center text-[#003468]">
-            <span className="text-blue-500 mr-2">●</span> MARS
-          </div>
-        </div>
-        <div className="flex space-x-4 text-sm font-bold text-gray-700">
-          <button className="flex items-center hover:text-blue-600">
-            로그인
-          </button>
-          <button className="flex items-center text-red-500 hover:text-red-700">
-            회원가입
-          </button>
-        </div>
-      </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         {/* Main Grid: 이미지의 반응형 변화를 결정하는 핵심 부분 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0.5 bg-[#003468] border-2 border-[#003468] rounded-sm overflow-hidden">
-          <GridItem
-            title="마스란?"
-            bgColor="bg-[#004a8d]"
-            icon={
-              <svg
-                className="w-10 h-10"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                ></path>
-              </svg>
-            }
-          />
+          <Link href="/content/mars">
+            <GridItem
+              title="마스란?"
+              bgColor="bg-[#004a8d]"
+              icon={
+                <svg
+                  className="w-10 h-10"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  ></path>
+                </svg>
+              }
+            />
+          </Link>
 
-          <GridItem title="진로교육 프로그램 안내" bgColor="bg-[#003468]">
-            <div className="absolute right-4 bottom-4 text-6xl opacity-20">
-              🔍
-            </div>
-          </GridItem>
-
+          <Link href="/content/program">
+            <GridItem title="진로교육 프로그램 안내" bgColor="bg-[#003468]">
+              <div className="absolute right-4 bottom-4 text-6xl opacity-20">
+                🔍
+              </div>
+            </GridItem>
+          </Link>
           <GridItem title="수강신청" bgColor="bg-[#00a2e8]">
             <div className="absolute right-4 bottom-4 text-6xl opacity-30">
               ✍️
@@ -87,12 +76,13 @@ const MarsLayout = () => {
               🏫
             </div>
           </GridItem>
-
-          <GridItem title="멘토모집" bgColor="bg-[#004a8d]">
-            <div className="absolute right-4 bottom-4 text-6xl opacity-30">
-              🎓
-            </div>
-          </GridItem>
+          <Link href="/content/recruit">
+            <GridItem title="멘토모집" bgColor="bg-[#004a8d]">
+              <div className="absolute right-4 bottom-4 text-6xl opacity-30">
+                🎓
+              </div>
+            </GridItem>
+          </Link>
 
           {/* 데스크탑에서만 보이는 빈 공간/장식 영역 */}
           <div className="hidden xl:block xl:col-span-3 bg-[#004a8d] relative">

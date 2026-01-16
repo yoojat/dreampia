@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import Link from "next/link";
 
 // 모바일 기기 노치 및 상태바 대응을 위한 필수 설정
 export const viewport: Viewport = {
@@ -9,8 +10,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "My Push App",
-  description: "FCM Push Notification App",
+  title: "MARS",
+  description: "MARS",
 };
 
 export default function RootLayout({
@@ -23,8 +24,34 @@ export default function RootLayout({
       {/* pt-[env(safe-area-inset-top)]: 상단 상태바/노치 겹침 방지
           pb-[env(safe-area-inset-bottom)]: 아이폰 하단 홈 바 대응 
       */}
-      <body className="flex flex-col min-h-screen pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] bg-white">
+      <body className="flex flex-col min-h-screen pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] bg-gray-50">
         {/* 메인 콘텐츠 영역 (나머지 공간을 꽉 채우도록 flex-1 적용) */}
+
+        <header className="w-full max-w-7xl mx-auto px-4 py-4 flex justify-between items-center bg-gray-50">
+          <div className="flex items-center space-x-2">
+            <Link
+              href="/"
+              className="font-black text-2xl flex items-center text-[#003468]"
+            >
+              <span className="text-blue-500 mr-2">●</span> MARS
+            </Link>
+          </div>
+          <div className="flex space-x-4 text-sm font-bold text-gray-700">
+            <Link
+              href="/auth/login"
+              className="flex items-center hover:text-blue-600"
+            >
+              로그인
+            </Link>
+            <Link
+              href="/auth/signup"
+              className="flex items-center text-red-500 hover:text-red-700"
+            >
+              회원가입
+            </Link>
+          </div>
+        </header>
+
         <main className="flex-1">{children}</main>
 
         {/* 푸터 영역 (image_11a4c4.png 디자인 구현) */}
