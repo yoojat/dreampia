@@ -1,8 +1,18 @@
+"use client";
+
 import FormInput from "@/components/fom-input";
 import FormButton from "@/components/form-btn";
 import Link from "next/link";
 
 export default function Login() {
+  const onClick = async () => {
+    const response = await fetch("/www/users", {
+      method: "POST",
+      body: JSON.stringify({ email: "test@test.com", password: "1234" }),
+    });
+    const data = await response.json();
+    console.log(data);
+  };
   return (
     <div className="min-h-screen bg-[#f6f6f6] text-gray-900">
       {/* Hero banner */}
@@ -46,7 +56,9 @@ export default function Login() {
             <label className="flex items-center gap-2 text-sm text-gray-600">
               <input type="checkbox" className="accent-[#e35b2f]" /> 자동로그인
             </label>
-            <FormButton loading={false} text="로그인" />
+            <span onClick={onClick} className="cursor-pointer">
+              <FormButton loading={false} text="로그인" />
+            </span>
             <div className="text-center text-xs text-gray-600">
               <Link href="/auth/findmy">아이디/비밀번호 찾기</Link>{" "}
               <span className="mx-2">|</span>{" "}
